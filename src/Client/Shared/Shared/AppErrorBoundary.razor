@@ -1,0 +1,30 @@
+﻿@inherits ErrorBoundaryBase
+
+@if (CurrentException is null)
+{
+    @ChildContent
+}
+else if (ErrorContent is null)
+{
+    <div class="main">
+        <div class="header">
+            <MudIconButton Variant="Variant.Outlined" OnClick="Recover" Icon="@Icons.Filled.Close"/>
+        </div>
+        <div>
+            <img src="_content/MisSystem.Client.Shared/images/icons/error-triangle.svg" />
+        </div>
+        <h1 class="title">Oops, something went wrong...</h1>
+        @if (ShowException)
+        {
+            <div class="exception">@CurrentException?.ToString()</div>
+        }
+        <div class="buttons">
+            <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="Refresh">Refresh</MudButton>
+            <MudButton Variant="Variant.Outlined" Color="Color.Default" OnClick="GoHome">Home</MudButton>
+        </div>
+    </div>
+}
+else
+{
+    @ErrorContent(CurrentException)
+}

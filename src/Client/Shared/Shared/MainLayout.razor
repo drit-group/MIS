@@ -1,0 +1,19 @@
+﻿@inherits LayoutComponentBase
+
+<MudThemeProvider/>
+<MudDialogProvider/>
+<MudSnackbarProvider/>
+
+<div>
+    <MudLayout>
+        <MudAppBar>
+            <MudIconButton Icon="@Icons.Custom.Brands.Google" Color="Color.Inherit" Edge="Edge.Start" />
+            My Application
+        </MudAppBar>
+        <MudMainContent>
+            <AppErrorBoundary>
+                @Body
+            </AppErrorBoundary>
+        </MudMainContent>
+    </MudLayout>
+</div>
